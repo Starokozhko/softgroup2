@@ -1,6 +1,6 @@
 <?php
 
-$myquery = mysqli_query($CONNECT, 'SELECT * FROM `post` LIMIT '.$_SESSION['loadallnews'].', 5' );
+$myquery = mysqli_query($CONNECT, 'SELECT * FROM `post` ORDER BY `idPost` DESC LIMIT '.$_SESSION['loadallnews'].', 5' );
 $myquery2 = mysqli_query($CONNECT, 'SELECT `id`, `firstname`, `lastname` FROM `new_users`');
 $myauthor = mysqli_query($CONNECT, 'SELECT `id`, `firstname`, `lastname` FROM `new_users`');
 
@@ -28,36 +28,20 @@ while ( $row2 = mysqli_fetch_assoc($myquery2) ) {
 
 			echo ("<p class='clear shorttext'>".$row['shortText']."</p>");
 			echo ("<p class='clear longtext'>".$row['shortText']." ".$row['text']."</p>");
-			echo ("<h5 class='title-comit'>Коментарии:</h5>");
+
 
 				echo ("<input  id='idPosts' value='".$row['idPost']."'/>");
 			if($_SESSION['id']){
 				echo ("<textarea name='coment_user' id='userComentsText'  placeholder='Enter yuor comment'></textarea>");
 				?> 
-				<p><button class='btn' >Подробнее...</button></p> <!--onclick="log_in('allform', 'onenews', 'idPost')" -->
+				<p><button class='btn' >Подробнее...</button></p> 
 				<?php
 			} else {
 				?>
-				<p><button class='btn' >Подробнее...</button></p> <!--onclick="log_in('allform', 'onenews', 'idPost')" -->
+				<p><button class='btn' >Подробнее...</button></p>
 				<?php
 			}
 
-
-			// if($row['coments'] != 0) {
-			// 	$mycoment = mysqli_query($CONNECT, "SELECT * FROM `coments` WHERE `idPosts` = $row[idPost] ORDER BY `id` DESC ");
-			// 	echo ("<div class='coments'>");
-
-			// 	while ( $row3 = mysqli_fetch_assoc($mycoment) ) {
-			// 		echo ("<div class='coments-item'>");
-
-			// 		echo ("<h6 class='coments-author'>Дата: ".$row3['data']."</h6>");
-			// 		echo ("<p class='coments-text'>".$row3['text']."</p>");
-			// 		echo ("</div>");
-			// 	}
-			// 	echo ("</div>");
-
-			// }
-		// echo ("<p class='clear longtext'>".$row['shortText']." ".$row['text']."</p>");
 
 			echo "</div>";
 		};
@@ -71,7 +55,6 @@ while ( $row2 = mysqli_fetch_assoc($myquery2) ) {
 
 		$(this).parent().parent()[0].className = 'oneNews';
 		$('.allnews-title')[0].innerHTML = 'Статья: ';
-		// $('.allnews-title')[0].value();
 		$('.news-item').remove();
 		$('.mooNews').remove();
 
@@ -87,9 +70,7 @@ while ( $row2 = mysqli_fetch_assoc($myquery2) ) {
 				str_author = $('#news-author')[0].innerHTML,
 				str_view = $('#news-view')[0].innerHTML,
 				str_coments = $('#news-coments')[0].innerHTML;
-		// console.log(str_datecreate + ' ' + str_author + ' ' + str_coments);
 
-		// var str_idpost = $('#idPosts')[0].value;
 		$.ajax({
 			url: 'allform',
 			type: 'POST',
@@ -97,26 +78,24 @@ while ( $row2 = mysqli_fetch_assoc($myquery2) ) {
 			cache: false,
 			success: function( result ) {
 
-						// console.log(result);
+
 						var obj = jQuery.parseJSON( result );
 
 						if( obj.go ) gotourl( obj.go )
 							else alert( obj.message );
-						// console.log('okey');
 
 					},
 				});
 
 
-		// console.log($('#userComentsText')[0].value);
 		if($('#userComentsText')[0]){
 			$('#userComentsText').css('display','block');
 			$(this)[0].className = 'btn-comment';
 			$('.btn-comment').attr('id', 'btn-comment');
 			$(this)[0].innerHTML = 'Коментировать';
 			$('.btn-comment').attr("onklick", "setcoment()");
+
 			$('.btn-comment').click(function(){
-				// alert('OKs');
 
 				var str_coment = $('#userComentsText')[0].value;
 				$.ajax({
@@ -126,7 +105,6 @@ while ( $row2 = mysqli_fetch_assoc($myquery2) ) {
 					cache: false,
 					success: function( result ) {
 
-						// console.log(result);
 						var obj = jQuery.parseJSON( result );
 
 						if( obj.go ) gotourl( obj.go )
@@ -141,7 +119,6 @@ while ( $row2 = mysqli_fetch_assoc($myquery2) ) {
 		}
 
 		$('.shorttext').css('display','none');
-		// console.log($(this).parent().parent()[0].className);
 	});
 
 

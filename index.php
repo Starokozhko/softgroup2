@@ -110,7 +110,7 @@ function top ( $title ) {
 					if($_SESSION['id']){
 						echo '
 						<li><a href="profile">Статьи</a></li>
-						<li><a href="history">История</a></li>
+						<li><a href="users">Пользователи</a></li>
 						<li><a href="logout">Выход</a></li>
 					</ul>
 				</header>
@@ -136,12 +136,5 @@ function bottom () {
 </body>
 </html>';
 };
-
-?>
-
-
-
-
-<?php
 
 ?>

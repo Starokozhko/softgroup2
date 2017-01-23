@@ -1,6 +1,5 @@
 <?php
 top('Статья: '.$_SESSION['news']['title']);
-// $mycoment = mysqli_query($CONNECT, "SELECT * FROM `coments` WHERE `idPosts` = $_SESSION[news][idpost] ORDER BY `id` DESC ");
 ?>
 
 
@@ -21,33 +20,17 @@ top('Статья: '.$_SESSION['news']['title']);
 
 	}
 
+	function setcoment() {
+		var str_idpost = $('#idPosts')[0].value;
+		var str_coment = $('#userComentsText')[0].value;
 
+		$.ajax({
+			url: 'allform',
+			type: 'POST',
+			data: 'setcoment_f=1&comenttext=' + str_coment + '&idpost=' + str_idpost,
+			cache: false,
+			success: function( result ) {
 
-	$(document).ready(function() {
-// 	loader_news();
-
-$('#userComentsText').css('display','block');
-$('.longtext').css('display','block');
-// $('.btn').className = 'btn-comment';
-// $('.btn-comment').attr('id', 'btn-comment');
-if($('.btn-comment')) {
-
-$('.btn-comment').click(function(){
-				
-				alert('OKs');
-
-
-				var str_idpost = $('#idPosts')[0].value;
-				var str_coment = $('#userComentsText')[0].value;
-				console.log(str_idpost);
-				$.ajax({
-					url: 'allform',
-					type: 'POST',
-					data: 'setcoment_f=1&comenttext=' + str_coment + '&idpost=' + str_idpost,
-					cache: false,
-					success: function( result ) {
-
-						// console.log(result);
 						var obj = jQuery.parseJSON( result );
 
 						if( obj.go ) gotourl( obj.go )
@@ -55,9 +38,15 @@ $('.btn-comment').click(function(){
 
 					},
 				});
+	}
 
-			});
-} else { alert('No')}
+
+
+	$(document).ready(function() {
+
+$('#userComentsText').css('display','block');
+$('.longtext').css('display','block');
+
 
 
 });
@@ -93,7 +82,7 @@ $('.btn-comment').click(function(){
 		if($_SESSION['id']){
 			echo ("<textarea name='coment_user' id='userComentsText'  placeholder='Enter yuor comment'></textarea>");
 			?> 
-			<p><button id='btn-comment'>Коментировать...</button></p> <!--onclick="log_in('allform', 'onenews', 'idPost')" -->
+			<p><button id='btn-comment' onclick="setcoment()">Коментировать...</button></p> <!--onclick="log_in('allform', 'onenews', 'idPost')" -->
 			<?php
 		} else {
 
@@ -102,8 +91,7 @@ $('.btn-comment').click(function(){
 		if( $_SESSION['news']['coments'] > 0) {
 			$id = $_SESSION['news']['idpost'];
 			$mycoment = mysqli_query($CONNECT, "SELECT * FROM `coments` WHERE `idPosts` = $id ORDER BY `id` DESC ");
-			// echo(mysqli_fetch_assoc($mycoment));
-		// echo ("<div class='coments'> ");
+
 
 			while ( $row3 = mysqli_fetch_assoc($mycoment) ) {
 				echo ("<div class='coments-item'>");
@@ -112,7 +100,7 @@ $('.btn-comment').click(function(){
 				echo ("<p class='coments-text'>".$row3['text']."</p>");
 				echo ("</div>");
 			}
-		// echo ("</div>");
+
 		} else {
 			echo ("<p>Коментариев нет.</p>");
 		}
@@ -120,10 +108,6 @@ $('.btn-comment').click(function(){
 		?>
 	</div>
 </div>
-
-
-<!-- </div> -->
-
 
 
 <?php

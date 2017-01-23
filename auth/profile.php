@@ -25,11 +25,7 @@ $(document).ready(function() {
 });
 
 </script>
-<!-- <section class="form-login">
-	<h1>Редакторование</h1>
-	<p><input id="password" type="password" placeholder="Новый пароль"></p>
-	<p><button onclick="log_in('aform', 'edit', 'password')">Сохранить</button></p>
-</section> -->
+
  <section class="form-login">
  <h1>Список записей</h1>
 
@@ -38,7 +34,7 @@ $(document).ready(function() {
 				<tr>
 					<th class='table-id'>№</th>
 					<th class='table-title'>Название статьи</th>
-					<th colspan='2' id='table-add' class='table-button-plus'>Добавить</th>
+					<th colspan='2' id='table-add' class='table-button-plus' onclick='addnews()'>Добавить</th>
 				</tr>
 
 				</tr>
@@ -49,6 +45,27 @@ $(document).ready(function() {
 
  </section>
 
+<script>
+	
+	function addnews() {
+		$.ajax({
+			url: 'allform',
+			type: 'POST',
+			data: 'addnews_f=1',
+			cache: false,
+			success: function( result ) {
+
+						var obj = jQuery.parseJSON( result );
+
+						if( obj.go ) gotourl( obj.go )
+							else alert( obj.message );
+
+					},
+				});
+};
+	
+
+</script>
 
 
 <?php

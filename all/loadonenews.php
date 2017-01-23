@@ -7,7 +7,7 @@ if ( !mysqli_num_rows($myquery) ) {
 	else exit('end');
 	exit;
 }
-// $_SESSION['loadonenews'] += 2;
+
 while ( $row = mysqli_fetch_assoc($myquery) ) {
 	echo "<p>".$row['idPost']."</p>";
 	echo "<p>".$row['titlePost']."</p>";

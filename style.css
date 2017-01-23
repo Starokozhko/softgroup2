@@ -58,23 +58,27 @@ ul li a:hover {
 section {
 	padding:  0 20px 0 0;
 }
-.form-login {
+.form-login, .form-users, .form-adduser {
 	margin: 20px;
+	padding: 10px;
 	border: 1px solid gray;
 }
-.form-login h1 {
+.form-adduser {
+	display: none;
+}
+.form-login h1, .form-adduser h1 {
 	font-size: 26px;
 	color: rgba(0,0,0,0.8);
 }
-.form-login p {
+.form-login p, .form-adduser p {
 	margin: 15px 0;
 }
-.form-login input {
+.form-login input, .form-adduser input {
 	padding: 10px;
 	width: 280px;
 	letter-spacing: 1px;
 }
-.form-login button, button {
+.form-login button, button, .form-adduser button {
 	padding: 8px 25px;
 	margin: 15px 0 30px;
 	border-radius: 4px;
@@ -130,6 +134,10 @@ tr:hover {
 }
 .table-button-plus {
 	width: 150px;
+	cursor: pointer;
+}
+.table-button-plus:hover {
+	color: red;
 }
 .table-id-row {
 	text-align: center;
@@ -147,110 +155,124 @@ tr:hover {
 .table-button {
 	width: 50px;
 }
-/*.table-button-plus {
-	width: 100%;
-	height: 40px;
-	background: red;
-}
-.ui-icon {
-	width: 16px;
-	height: 16px;
-	background: url(images/icon.png) no-repeat;
-	background-position: 0 0;
-	}*/
-	/* Конец Таблица статей админки */
-	.news-item, .oneNews {
-		border-bottom: 1px dashed #ccc;
-		width: 85%;
-		height: auto;
-		padding: 20px;
-		margin: 0 auto;
-	}
-	.oneNews {
-		border-bottom: none;
-	}
 
-	.news-item:last-child {
-		margin-bottom: 40px;
-	}
-	.news-item:hover {
-		background-color: #ccf;
-	}
-	h6 {
-		color: #999;
-	}
-	.pictograph {
-		font-size: 12px;
-		margin: 2px 0;
-	}
-	.pictograph span {
-		font-size: 16px;
-	}
-	.left {
-		float: left;
-	}
-	.right {
-		float: right;
-	}
-	.smoll {
-		font-size: 12px;
-		cursor: pointer;
-		text-decoration: underline;
-	}
-	.clear {
-		clear: both;
-		content: '';
-		display: block;
-	}
-	.allnews-title {
-		padding: 20px 0 20px 40px;
-	}
-	.longtext {
-		display: none;
-		padding: 20px 0;
-		letter-spacing: .3px;
-		line-height: 25px;
-	}
-	.coments {
-		padding: 10px;
-		margin: 10px 0 40px;
-		border: 1px dashed #999;
-	}
-	.coments-item {
-		padding: 10px;
-		background-color: #b5dacf;
-		border-radius: 10px;
-		margin: 10px;
-	}
-	.coments-author {
-		margin-bottom: 5px;
-	}
-	.coments-text, #user-coments-text {
-		letter-spacing: 0.5px;
-		line-height: 20px;
-		font-size: 15px;
-	}
-	#userComentsText {
-		display: none;
-		width: 97%;
-		height: 100px;
-		padding: 10px;
-		resize: none;
-	}
-	.title-comit {
-		color: #0e2744;
-		margin: 10px 0;
-	}
-	.btn, .btn-comment {
-		cursor: pointer;
-	}
-	#idPosts {
-		display: none;
-	}
-	.news-title {
-		font-size: 45px;
-		margin-top: 20px;
-	}
-	.news-countviews {
-		margin-top: 30px;
-	}
+.news-item, .oneNews {
+	border-bottom: 1px dashed #ccc;
+	width: 85%;
+	height: auto;
+	padding: 20px;
+	margin: 0 auto;
+}
+.oneNews {
+	border-bottom: none;
+}
+
+.news-item:last-child {
+	margin-bottom: 40px;
+}
+.news-item:hover {
+	background-color: #ccf;
+}
+h6 {
+	color: #999;
+}
+.pictograph {
+	font-size: 12px;
+	margin: 2px 0;
+}
+.pictograph span {
+	font-size: 16px;
+}
+.left {
+	float: left;
+}
+.right {
+	float: right;
+}
+.smoll {
+	font-size: 12px;
+	cursor: pointer;
+	text-decoration: underline;
+}
+.clear {
+	clear: both;
+	content: '';
+	display: block;
+}
+.allnews-title {
+	padding: 20px 0 20px 40px;
+}
+.longtext {
+	display: none;
+	padding: 20px 0;
+	letter-spacing: .3px;
+	line-height: 25px;
+}
+.coments {
+	padding: 10px;
+	margin: 10px 0 40px;
+	border: 1px dashed #999;
+}
+.coments-item {
+	padding: 10px;
+	background-color: #b5dacf;
+	border-radius: 10px;
+	margin: 10px;
+}
+.coments-author {
+	margin-bottom: 5px;
+}
+.coments-text, #user-coments-text {
+	letter-spacing: 0.5px;
+	line-height: 20px;
+	font-size: 15px;
+}
+#userComentsText {
+	display: none;
+	width: 97%;
+	height: 100px;
+	padding: 10px;
+	resize: none;
+}
+.title-comit {
+	color: #0e2744;
+	margin: 10px 0;
+}
+.btn, .btn-comment {
+	cursor: pointer;
+}
+#idPosts {
+	display: none;
+}
+.news-title {
+	font-size: 45px;
+	margin-top: 20px;
+}
+.news-countviews {
+	margin-top: 30px;
+}
+
+
+
+.correct-news-title {
+	display: block;
+	width: 60%;
+	height: 30px;
+	font-size: 20px;
+	margin-bottom: 10px;
+}
+textarea#news-shorttext, textarea#news-text {
+	display: block;
+	width: 100%;
+	font-size: 20px;
+	margin-bottom: 10px;
+}
+textarea#news-shorttext {
+	height: 80px;
+}
+textarea#news-text {
+	height: 200px;
+}
+#btn-corrected {
+	margin: 20px 0 50px;
+}

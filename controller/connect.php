@@ -4,7 +4,7 @@ $host = 'localhost';
 $db = 'jcat84';
 $charset = "utf8_bin";
 $user = 'jcat84';
-$pass = 'v344va46';
+$pass = '------';
 $url = $_SERVER['HTTP_REFERER'];
 
 // echo $url;
