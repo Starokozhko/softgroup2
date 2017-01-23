@@ -1,0 +1,256 @@
+* {
+	margin: 0;
+	padding: 0;
+	font-family: sans-serif;
+}
+body {
+	width: 100%;
+	height: auto;
+	background:  #1B8567 ;
+}
+h1.logo {
+	text-align: center;
+	padding: 10px 0;
+	color: #fff;
+	font-size: 60px;
+	letter-spacing: 30px;
+	font-weight: 900;
+}
+.wrapper {
+	width: 950px;
+	min-height: 500px;
+	height: auto;
+	background-color: #fff;
+	margin: 0 auto;
+	box-shadow: 0 0 10px rgba(0,0,0,0.8);
+	position: relative;
+	overflow: hidden;
+}
+header,
+footer {
+	width: 100%;
+	height: 40px;
+	background-color: #4373AC;
+}
+footer {
+	position: absolute;
+	bottom: 0;
+}
+ul {
+	list-style: none;
+}
+ul li {
+	display: inline-block;
+	line-height: 40px;
+	width: 150px;
+}
+ul li a {
+	text-decoration: none;
+	text-align: center;
+	color: #000;
+	font-size: 18px;
+	display: block;
+}
+ul li a:hover {
+	background-color: #1B4476;
+	color: #fff;
+}
+section {
+	padding:  0 20px 0 0;
+}
+.form-login {
+	margin: 20px;
+	border: 1px solid gray;
+}
+.form-login h1 {
+	font-size: 26px;
+	color: rgba(0,0,0,0.8);
+}
+.form-login p {
+	margin: 15px 0;
+}
+.form-login input {
+	padding: 10px;
+	width: 280px;
+	letter-spacing: 1px;
+}
+.form-login button, button {
+	padding: 8px 25px;
+	margin: 15px 0 30px;
+	border-radius: 4px;
+	background: #4373ac;
+	border: 1px solid #4373ac;
+	font-size: 18px;
+}
+.form-login button:hover, button:hover {
+	background: #1B4476;
+	color: #fff;
+}
+
+
+/* Таблица статей админки */
+tr {
+	height: 25px;
+}
+tr {
+	background-color: #ff8;
+}
+tr:hover {
+	background-color: #ccc;
+}
+.table-add {
+	width: 100px;
+	height: 40px;
+	background-color: green;
+	cursor: pointer;
+}
+.table-cor {
+	height: 40px;
+	line-height: 40px;
+}
+.table-button {
+	text-align: center;
+	cursor: pointer;
+}
+.table-button-del:hover {
+	background-color: red;
+	color: #fff;
+}
+.table-button-red:hover {
+	background-color: orange;
+	color: #fff;
+}
+
+.table-id {
+	width: 50px;
+}
+.table-title {
+	padding-left: 10px;
+	width: 500px;
+}
+.table-button-plus {
+	width: 150px;
+}
+.table-id-row {
+	text-align: center;
+	font-style:  italic;
+}
+.table-title-row {
+	font-style:  italic;
+	width: 350px;
+	padding-left: 10px;
+}
+#table-add {
+	background-color: #0f9;
+}
+
+.table-button {
+	width: 50px;
+}
+/*.table-button-plus {
+	width: 100%;
+	height: 40px;
+	background: red;
+}
+.ui-icon {
+	width: 16px;
+	height: 16px;
+	background: url(images/icon.png) no-repeat;
+	background-position: 0 0;
+	}*/
+	/* Конец Таблица статей админки */
+	.news-item, .oneNews {
+		border-bottom: 1px dashed #ccc;
+		width: 85%;
+		height: auto;
+		padding: 20px;
+		margin: 0 auto;
+	}
+	.oneNews {
+		border-bottom: none;
+	}
+
+	.news-item:last-child {
+		margin-bottom: 40px;
+	}
+	.news-item:hover {
+		background-color: #ccf;
+	}
+	h6 {
+		color: #999;
+	}
+	.pictograph {
+		font-size: 12px;
+		margin: 2px 0;
+	}
+	.pictograph span {
+		font-size: 16px;
+	}
+	.left {
+		float: left;
+	}
+	.right {
+		float: right;
+	}
+	.smoll {
+		font-size: 12px;
+		cursor: pointer;
+		text-decoration: underline;
+	}
+	.clear {
+		clear: both;
+		content: '';
+		display: block;
+	}
+	.allnews-title {
+		padding: 20px 0 20px 40px;
+	}
+	.longtext {
+		display: none;
+		padding: 20px 0;
+		letter-spacing: .3px;
+		line-height: 25px;
+	}
+	.coments {
+		padding: 10px;
+		margin: 10px 0 40px;
+		border: 1px dashed #999;
+	}
+	.coments-item {
+		padding: 10px;
+		background-color: #b5dacf;
+		border-radius: 10px;
+		margin: 10px;
+	}
+	.coments-author {
+		margin-bottom: 5px;
+	}
+	.coments-text, #user-coments-text {
+		letter-spacing: 0.5px;
+		line-height: 20px;
+		font-size: 15px;
+	}
+	#userComentsText {
+		display: none;
+		width: 97%;
+		height: 100px;
+		padding: 10px;
+		resize: none;
+	}
+	.title-comit {
+		color: #0e2744;
+		margin: 10px 0;
+	}
+	.btn, .btn-comment {
+		cursor: pointer;
+	}
+	#idPosts {
+		display: none;
+	}
+	.news-title {
+		font-size: 45px;
+		margin-top: 20px;
+	}
+	.news-countviews {
+		margin-top: 30px;
+	}

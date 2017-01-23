@@ -1,0 +1,4 @@
+#RewriteEngine on
+RewriteRule .css style.css [L]
+RewriteRule .js js/myscript.js [L]
+RewriteRule .* index.php [L]
